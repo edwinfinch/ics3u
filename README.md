@@ -7,7 +7,7 @@ Stuff for my computer sciences class.
 
 <a href="https://github.com/edwinfinch/ics3u/tree/master/Activity1">Activity 1 - All parts</a>
 
-<a href="https://github.com/edwinfinch/ics3u/tree/master/Activity2">Activity 2</a>
+<a href="https://github.com/edwinfinch/ics3u/tree/master/Activity2">Activity 2 - All parts</a>
 
 <a href="https://github.com/edwinfinch/ics3u/tree/master/Activity3-part1">Activity 3 - Part 1</a>
 
@@ -16,3 +16,5 @@ Stuff for my computer sciences class.
 <a href="https://github.com/edwinfinch/ics3u/tree/master/Activity4-part1">Activity 4 - Part 1</a>
 
 <a href="https://github.com/edwinfinch/ics3u/tree/master/Activity4-part2">Activity 4 - Part 2</a>
+
+<a href="https://github.com/edwinfinch/ics3u/tree/master/Activity4-part3">Activity 4 - Part 3</a>
