@@ -26,21 +26,80 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        scale_slider = new javax.swing.JSlider();
+        number = new javax.swing.JLabel();
+        scale_t = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Calibri Light", 0, 36)); // NOI18N
+        jLabel1.setText("H3r1c@n3 $W@&");
+
+        scale_slider.setMaximum(4);
+        scale_slider.setValue(1);
+        scale_slider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                scale_sliderStateChanged(evt);
+            }
+        });
+
+        number.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        number.setText("Scroll the slider to see scales!");
+
+        scale_t.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        scale_t.setText("null");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scale_t, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scale_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(number, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(33, 33, 33)
+                .addComponent(scale_slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(number)
+                .addGap(18, 18, 18)
+                .addComponent(scale_t)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    int scale = 1;
+    public String[] woof_woof_bark_moo = {
+        "74-95 mph or 64-82 kt or 119-153 km/hr", 
+        "96-110 mph or 83-95 kt or 154-177 km/hr",
+        "111-130 mph or 96-113 kt or 178-209 km/hr",
+        "131-155 mph or 114-135 kt or 210-249 km/hr",
+        "greater than 155 mph or 135 kt or 249 km/hr.",
+    };
+    
+    public void refresh(){
+        //could use an array but here you go m8
+        scale_t.setText(woof_woof_bark_moo[scale]);
+        int fix = scale+1;
+        number.setText(fix + "");
+    }
+    
+    private void scale_sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_scale_sliderStateChanged
+        scale = scale_slider.getValue();
+        refresh();
+    }//GEN-LAST:event_scale_sliderStateChanged
 
     /**
      * @param args the command line arguments
@@ -78,5 +137,9 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel number;
+    private javax.swing.JSlider scale_slider;
+    private javax.swing.JLabel scale_t;
     // End of variables declaration//GEN-END:variables
 }
