@@ -24,3 +24,5 @@ Stuff for my computer sciences class.
 <a href="https://github.com/edwinfinch/ics3u/tree/master/Activity5-part2">Activity 5 - Part 2</a>
 
 <a href="https://github.com/edwinfinch/ics3u/tree/master/Activity5-part3">Activity 5 - Part 3</a>
+
+<a href="https://github.com/edwinfinch/ics3u/tree/master/Activity6-part1">Activity 6 - Part 1</a>
