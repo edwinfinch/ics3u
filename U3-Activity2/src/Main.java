@@ -108,22 +108,26 @@ public class Main extends javax.swing.JPanel {
     String monogram = "";
     
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        //simple array to keep track of all the input
         String[] inputs = {
             "Hello", "There", "World"
         };
+        //Get the according substring from each input and set lower/uppercase accordingly
         inputs[0] = firstInput.getText().substring(0, 1).toLowerCase();
         inputs[2] = middleInput.getText().substring(0, 1).toLowerCase();
         inputs[1] = lastInput.getText().substring(0, 1).toUpperCase();
         
+        //add them all to one string
         for(int i = 0; i < 3; i++){
             monogram = monogram + inputs[i];
         }
+        //set it to a string
         titleAndOutput.setText(monogram);
     }//GEN-LAST:event_submitButtonActionPerformed
 
     static public void main(String arguments[]){
+        //set up frame/window and launch it
         Main main = new Main();
-        
         JFrame frame = new JFrame();
         frame.setSize(250, 200);
         frame.setContentPane(main);
