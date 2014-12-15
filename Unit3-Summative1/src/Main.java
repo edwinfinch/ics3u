@@ -188,6 +188,8 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //In case of warning, error, or help message needed, this function can be called and a message
+    //will appear accordingly
     private void popup(String errorText, int type){
          switch(type){
              case 0:
@@ -202,18 +204,23 @@ public class Main extends javax.swing.JFrame {
          }
     }
     
+    //Input and marks variables for storing data
     String inputText;
     ArrayList<Integer> marks = new ArrayList<>();
     
+    //When an item is double clicked, the item location is passed into this when called
+    //And it removes the items and refreshes the list
     void itemDoubleClicked(int item){
         marks.remove(item);
         insertNumbersIntoList();
     }
     
+    //Gets the input text and adds some space cushion around it to prevent errors or early cut offs
     private void captureInputText(){
         inputText = " " + marksInput.getText() + " ";
     }
     
+    //Removes invalid characters such as commas or double spaces
     private void removeInvalidCharacters(){
         if(inputText.contains(",")){
             inputText = inputText.replaceAll(",", " ");
@@ -223,6 +230,8 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
+    //Captures the numbers when the string is finally ready for processing after all of its pampering
+    //Multiple numbers are supported in one sentence which is why we have a while loop
     private void captureNumbers(){
         String tempString;
         while(inputText != " " || inputText != ""){
@@ -244,14 +253,17 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
+    //Sets (or refreshes) the data of the list panel to the data of the ArrayList
     private void insertNumbersIntoList(){
         marksList.setListData(marks.toArray());
     }
     
+    //Adds a string to the stats text area and starts a new line.
     private void addToStats(String text){
         statsTextArea.append(text + "\n");
     }
     
+    //Depending on the context, clears a certain amount of data/areas for different reasons such as the clear button being clicked
     private void clear(int toClear){
         switch(toClear){
             case 0:
@@ -265,6 +277,10 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
+    /*
+     * Creates a new ClassData instance with the marks at the time, adds all of the stats required to the stats
+     * box, from average to amount of people at a level
+     */
     private void updateData(){
         ClassData data = new ClassData(marks);
         addToStats("Average: " + String.format("%.2f", data.getAverage()));
@@ -277,14 +293,17 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
+    //Cleans up the marks input textbox after input so the user doens't have to delete it themselves
     private void cleanup(){
         marksInput.setText("");
     }
     
+    //When the help button is clicked, popup a help dialog
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
         popup("Press enter to submit marks. Marks should be separated by commas or spaces. Double click an item to remove.", 2);
     }//GEN-LAST:event_helpButtonActionPerformed
 
+    //When the enter key is hit on the main input box, run basically all of the functions above
     private void marksInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marksInputActionPerformed
         clear(0);
         captureInputText();
@@ -295,10 +314,8 @@ public class Main extends javax.swing.JFrame {
         updateData();
         cleanup();
     }//GEN-LAST:event_marksInputActionPerformed
-    
-    private void marksListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_marksListMouseClicked
-    }//GEN-LAST:event_marksListMouseClicked
 
+    //Clears all the data, text areas, etc.
     private void resetAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetAllButtonActionPerformed
         clear(1);
     }//GEN-LAST:event_resetAllButtonActionPerformed
